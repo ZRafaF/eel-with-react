@@ -1,7 +1,14 @@
 ## Dependências
 
 ``` bash
+cd web
+
 npm install
+
+cd ..
+
+npm install
+
 pip install bottle bottle-websocket future whichcraft pyinstaller eel
 ```
 ___
