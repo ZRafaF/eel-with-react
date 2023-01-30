@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "cd web && npm run start",
+    "startEel": "cd web && npm run build && cd.. && python main.py",
+    "build": "cd web && npm run build",
+    "buildBin": "cd web && npm run build && cd.. && python -m eel main.py web/build --onefile && rm main.spec"
+
+  }
+}
