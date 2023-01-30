@@ -1,13 +1,9 @@
 ## Dependências
 
 ``` bash
-cd web
-
 npm install
 
-cd ..
-
-npm install
+npm run install
 
 pip install bottle bottle-websocket future whichcraft pyinstaller eel
 ```
@@ -24,9 +20,9 @@ Para execução temos algumas opções
 
 * Executar apenas web `npm run start`
 
-* Executar apenas eel `python main.py`
+* Executar apenas eel `npm run startEel`
 
-* Executar apenas eel + web `npm run start`
+* Executar apenas eel + web `npm run startBoth`
     > Nesse caso primeiro será realizada uma build do web app, e so então executado
 
 * Construir web app `npm run build`

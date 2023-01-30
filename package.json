@@ -1,9 +1,11 @@
 {
   "scripts": {
     "start": "cd web && npm run start",
-    "startEel": "cd web && npm run build && cd.. && python main.py",
+    "startBoth": "cd web && npm run build && cd.. && python main.py",
+    "startEel": "python main.py",
     "build": "cd web && npm run build",
-    "buildBin": "cd web && npm run build && cd.. && python -m eel main.py web/build --onefile && rm main.spec"
+    "buildBin": "cd web && npm run build && cd.. && python -m eel main.py web/build --onefile && rm main.spec",
+    "install": "npm install && cd web && npm install"
 
   }
 }
