@@ -31,5 +31,6 @@ if __name__ == "__main__":
     # system("taskkill /im chrome.exe /f") # Podemos colocar isso para fechar o chrome antes de rodar o eel
     eel.spawn(start_eel)  # Inicializando eel em outro thread
     while True:
+
         
         eel.sleep(1)
