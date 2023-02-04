@@ -5,7 +5,9 @@ npm install
 
 npm run install
 
-pip install bottle bottle-websocket future whichcraft pyinstaller eel
+pip install bottle bottle-websocket future whichcraft pyinstaller
+
+pip install eel
 ```
 ___
 
