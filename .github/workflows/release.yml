@@ -21,7 +21,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: npm run installDep
       - run: npm run buildBin
-      - uses: "marvinpinto/action-automatic-releases@Latest"
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
