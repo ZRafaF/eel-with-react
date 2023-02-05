@@ -3,6 +3,7 @@ build/
 dist/
 venv/
 *.spec
+*.ico
 
 # dependencies
 web/node_modules
@@ -25,3 +26,4 @@ web/.env.production.local
 web/npm-debug.log*
 web/yarn-debug.log*
 web/yarn-error.log*
+
