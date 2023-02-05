@@ -1,8 +1,9 @@
 name: Rekease
-release:
-  types: [created]
-  tags:
-    - "v*"
+on:
+  release:
+    types: [created]
+    tags:
+      - "v*"
 
 permissions:
   contents: write
