@@ -12,11 +12,13 @@ try{
 
 async function printOne(){
   let returnValue = await eel.get_one()();
-  alert(returnValue, 2);
+  //alert(returnValue, 2);
 
-  let dataPoints = await eel.getRandomDataPoints(2)();
-  dataPoints = JSON.parse(dataPoints);
-  console.log(dataPoints);
+  let dataPoints = await eel.get_random_data_points(300)();
+  //dataPoints = JSON.parse(dataPoints);
+  console.log("All data: ", dataPoints);
+  
+  console.log("Data 0 x: ", dataPoints[0].x, " y: ", dataPoints[0].y);
 }
 
 printOne();

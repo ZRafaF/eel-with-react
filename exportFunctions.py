@@ -20,13 +20,27 @@ def get_one():
     return 1
 
 
+@eel.expose
+def get_random_data_points(dataSize):
+    returnArray = []
+    for i in range(dataSize):
+        point = {
+            "x": random.randint(0, 100),
+            "y": i
+        }
+        returnArray.append(point)
+    
+    return (returnArray)
+
+
+
 class dataPoint:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
 @eel.expose
-def getRandomDataPoints(dataSize):
+def get_random_data_points_JSON(dataSize):
     returnArray = []
     for i in range(dataSize):
         returnArray.append((dataPoint(x=random.randint(0, 100), y=i).__dict__))
