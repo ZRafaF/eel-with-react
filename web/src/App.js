@@ -13,6 +13,10 @@ try{
 async function printOne(){
   let returnValue = await eel.get_one()();
   alert(returnValue, 2);
+
+  let dataPoints = await eel.getRandomDataPoints(2)();
+  dataPoints = JSON.parse(dataPoints);
+  console.log(dataPoints);
 }
 
 printOne();
