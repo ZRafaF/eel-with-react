@@ -7,24 +7,6 @@ on:
 permissions:
   contents: write
 jobs:
-  deploy:
-    env:
-      ENABLE_PDF_EXPORT: 1
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-with-pdf
-      - run: pip install mkdocs-pdf-export-plugin
-      - run: mkdocs gh-deploy --force
-
   release:
     runs-on: ubuntu-latest
     steps:

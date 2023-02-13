@@ -12,7 +12,7 @@ try{
 
 async function printOne(){
   let returnValue = await eel.get_one()();
-  //alert(returnValue, 2);
+  alert(returnValue, 2);
 
   //await eel.start_time();
 
