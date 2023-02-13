@@ -38,8 +38,8 @@ jobs:
       - run: npm run build
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
-          remove: ". -r"
+          #remove: ". -r"
           add: |
             './web/build --force'
             'main.py'
-          new_branch: build
+          new_branch: build-2
