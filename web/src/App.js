@@ -14,11 +14,25 @@ async function printOne(){
   let returnValue = await eel.get_one()();
   //alert(returnValue, 2);
 
-  let dataPoints = await eel.get_random_data_points(300)();
+  //await eel.start_time();
+
+  let dataPoints = await eel.get_random_data_points(300000)();
+
+  await eel.end_time();
+
+  //await eel.start_time();
+
+  let dataPointsJson = JSON.parse(await eel.get_random_data_points_JSON(300000)());
+
+  await eel.end_time();
+
   //dataPoints = JSON.parse(dataPoints);
   console.log("All data: ", dataPoints);
   
   console.log("Data 0 x: ", dataPoints[0].x, " y: ", dataPoints[0].y);
+
+  console.log("All data JSON: ", dataPointsJson);
+
 }
 
 printOne();

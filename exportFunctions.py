@@ -14,6 +14,8 @@
 import eel
 import random
 import json
+import time
+
 
 @eel.expose
 def get_one():
@@ -21,17 +23,24 @@ def get_one():
 
 
 @eel.expose
+def start_time():
+    global start 
+    start = time.time()
+
+@eel.expose
+def end_time():
+    end = time.time()
+    print("Elapsed time: ", (end - start))
+
+@eel.expose
 def get_random_data_points(dataSize):
     returnArray = []
     for i in range(dataSize):
-        point = {
-            "x": random.randint(0, 100),
-            "y": i
-        }
+        point = {"x": random.randint(0, 100), "y": i}
         returnArray.append(point)
-    
-    return (returnArray)
 
+    start_time()
+    return returnArray
 
 
 class dataPoint:
@@ -39,10 +48,13 @@ class dataPoint:
         self.x = x
         self.y = y
 
+
 @eel.expose
 def get_random_data_points_JSON(dataSize):
     returnArray = []
     for i in range(dataSize):
         returnArray.append((dataPoint(x=random.randint(0, 100), y=i).__dict__))
-    
-    return json.dumps(returnArray)
+
+    json_dump = json.dumps(returnArray)
+    start_time()
+    return json_dump
