@@ -4,7 +4,7 @@
     "startBoth": "cd web && npm run build && cd .. && python main.py",
     "startEel": "python main.py",
     "build": "cd web && npm run build",
-    "buildBin": "cd web && npm run build && cd .. && python -m eel main.py web/build --onefile --name EelApp --icon ./src/web/public/favicon.ico",
+    "buildBin": "cd web && npm run build && cd .. && python -m eel main.py web/build --onefile --name EelApp",
     "installDep": "npm install && cd web && npm install"
   }
 }

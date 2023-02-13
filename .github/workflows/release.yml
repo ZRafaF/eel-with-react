@@ -57,7 +57,7 @@ jobs:
           path: .cache
       - run: pip install -r requirements.txt
       - run: npm run installDep
-      - run: npm run buildBin
+      - run: npm run build
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
           add: |
