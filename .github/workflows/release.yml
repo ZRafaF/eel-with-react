@@ -29,20 +29,20 @@ jobs:
           name: my-artifact
           path: ./release/
 
-build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v3
-      with:
-        python-version: 3.x
-    - run: pip install -r requirements.txt
-    - run: npm run installDep
-    - run: npm run build
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: "./web/build"
-        exclude_assets: ".github,exclude-file1,exclude-file2"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      - run: npm run installDep
+      - run: npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: "./web/build"
+          exclude_assets: ".github,exclude-file1,exclude-file2"
 
-        publish_branch: master
+          publish_branch: master
