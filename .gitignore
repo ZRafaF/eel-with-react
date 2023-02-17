@@ -1,6 +1,9 @@
 __pycache__/
+build/
 dist/
 venv/
+*.spec
+*.ico
 
 # dependencies
 web/node_modules
@@ -10,6 +13,8 @@ web.pnp.js
 # testing
 web/coverage
 
+# production
+web/build
 
 # misc
 web/.DS_Store
