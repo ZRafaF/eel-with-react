@@ -20,27 +20,29 @@ jobs:
       - run: pip install -r requirements.txt
       - run: npm run installDep
       - run: npm run buildBin
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - run: mkdir release
+      - run: cp ./ ./release/
+      - run: rm -e ./release/web
+      - run: cp ./web/build/ ./release/web/build
+      - uses: actions/upload-artifact@v3
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          title: "Development Build"
-          files: dist/
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          python-version: 3.x
-      - run: pip install -r requirements.txt
-      - run: npm run installDep
-      - run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "./web/build"
-          exclude_assets: ".github,exclude-file1,exclude-file2"
+          name: my-artifact
+          path: ./release/
 
-          publish_branch: master
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        python-version: 3.x
+    - run: pip install -r requirements.txt
+    - run: npm run installDep
+    - run: npm run build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: "./web/build"
+        exclude_assets: ".github,exclude-file1,exclude-file2"
+
+        publish_branch: master
