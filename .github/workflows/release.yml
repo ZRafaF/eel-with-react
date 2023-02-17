@@ -19,30 +19,13 @@ jobs:
           path: .cache
       - run: pip install -r requirements.txt
       - run: npm run installDep
-      - run: npm run buildBin
+      - run: npm run build
       - run: mkdir release
-      - run: cp ./ ./release/
-      - run: rm -e ./release/web
-      - run: cp ./web/build/ ./release/web/build
+      - run: cp -r !(release) ./release/
+      - run: rm -r ./release/web
+      - run: mkdir release/web
+      - run: cp -r ./web/build/ ./release/web/build
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
           path: ./release/
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          python-version: 3.x
-      - run: pip install -r requirements.txt
-      - run: npm run installDep
-      - run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "./web/build"
-          exclude_assets: ".github,exclude-file1,exclude-file2"
-
-          publish_branch: master
