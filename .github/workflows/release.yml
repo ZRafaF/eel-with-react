@@ -17,14 +17,20 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install -r requirements.txt
-      - run: npm run installDep
-      - run: npm run build
-      - run: mkdir release
-      - run: cp -r !(release) ./release/
-      - run: rm -r ./release/web
-      - run: mkdir release/web
-      - run: cp -r ./web/build/ ./release/web/build
+      - name: Building
+        run: |
+          cd src
+          pip install -r requirements.txt
+          npm run installDep
+          npm run build
+          cd ..
+      - name: Creating release
+        run: |
+          mkdir release
+          cp -r ./src/ ./release/
+          rm -r ./release/web
+          mkdir release/web
+          cp -r ./src/web/build/ ./release/web/build
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
