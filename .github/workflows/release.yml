@@ -31,10 +31,11 @@ jobs:
           rm -r ./release/web
           mkdir release/web
           cp -r ./src/web/build/ ./release/web/build
+          zip -r release.zip ./release/*
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
           title: "Development Build"
-          files: /release/
+          files: ./release.zip
