@@ -31,7 +31,10 @@ jobs:
           rm -r ./release/web
           mkdir release/web
           cp -r ./src/web/build/ ./release/web/build
-      - uses: actions/upload-artifact@v3
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: my-artifact
-          path: ./release/
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Development Build"
+          files: /release/
