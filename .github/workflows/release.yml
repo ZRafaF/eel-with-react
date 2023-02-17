@@ -27,7 +27,7 @@ jobs:
       - name: Creating release
         run: |
           mkdir release
-          cp -r ./src/ ./release/
+          cp -r ./src/. ./release/
           rm -r ./release/web
           mkdir release/web
           cp -r ./src/web/build/ ./release/web/build
